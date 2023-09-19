@@ -5,13 +5,26 @@ let protoArray4 = "Comma-spaces, might, require, typing, caution";
 
 strings = [protoArray1, protoArray2, protoArray3, protoArray4];
 
+
 //2) 
 function reverseCommas() {
 	//TODO: 1. create and instantiate your variables.
-	let check;
-	let output;
-	//TODO: 2. write the code required for this step
+	let str, newStr;
+	let arr = [];
 
+	str = protoArray3;
+	if(str.includes(', ')){
+	 console.log("This string is separated by commas and has spaces");
+	
+	arr = str.split(',');
+	arr.reverse();
+     newStr = arr.join(',');
+	} else {
+		
+	}
+	
+	//TODO: 2. write the code required for this step
+	
 	//NOTE: For the code to run properly, you must return your output.  this needs to be the final line of code within the function's { }.
 	return output;
 }
