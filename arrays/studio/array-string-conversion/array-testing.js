@@ -9,22 +9,22 @@ strings = [protoArray1, protoArray2, protoArray3, protoArray4];
 //2) 
 function reverseCommas() {
 	//TODO: 1. create and instantiate your variables.
-	let str, newStr;
+	let check;
+	let output;
 	let arr = [];
+	let str = protoArray1;
 
-	str = protoArray3;
-	if(str.includes(', ')){
-	 console.log("This string is separated by commas and has spaces");
-	
-	arr = str.split(',');
-	arr.reverse();
-     newStr = arr.join(',');
-	} else {
-		
-	}
-	
 	//TODO: 2. write the code required for this step
-	
+	check = str.includes(',');
+	if(check){
+
+		arr = str.split(',');
+		arr.reverse();
+    	output = arr.join(',');
+	} else {
+		console.log("This string isn't spearated by commas ");
+	}
+		
 	//NOTE: For the code to run properly, you must return your output.  this needs to be the final line of code within the function's { }.
 	return output;
 }
@@ -33,8 +33,20 @@ function reverseCommas() {
 function semiDash() {
 	let check;
 	let output;
-//TODO: write the code required for this step
+	let arr = [];
+	let str = protoArray2;
+	
 
+//TODO: write the code required for this step
+	check = str.includes(';');
+	if(check){
+
+		arr = str.split(';');
+		arr.sort();
+    	output = arr.join('-');
+	} else {
+		console.log("This string isn't spearated by semicolon ");
+	}
   
 	return output;
 }
@@ -43,7 +55,19 @@ function semiDash() {
 function reverseSpaces() {
 	let check;
 	let output;
+	let arr = [];
+	let str = protoArray3;
+
   //TODO: write the code required for this step
+	check = str.includes(" ");
+	if(check){
+
+		arr = str.split(' ');
+		arr.sort().reverse();
+    	output = arr.join(' ');
+	} else {
+		console.log("This string isn't spearated by space ");
+	}
 
 	return output;
 }
@@ -52,8 +76,18 @@ function reverseSpaces() {
 function commaSpace() {
 	let check;
 	let output;
+	let arr = [];
+	let str = protoArray4;
 	//TODO: write the code required for this step
-  
+	check = str.includes(", ");
+	if(check){
+
+		arr = str.split(', ');
+		arr.reverse();
+    	output = arr.join(',');
+	} else {
+		console.log("This string isn't spearated by commas ");
+	}
 	return output;
 }
 
