@@ -18,10 +18,16 @@ console.log(cargoHold);
 const input = require("readline-sync");
 let cabinetSelection = input.question("Select a cabinet (0 - 3): ");
 //4) Use bracket notation and a template literal to display the contents of the selected cabinet. If the user entered an invalid number, print an error message.
-if (cabinetSelection < 0 || cabinetSelection > 3) {
+if (cabinetSelection < 0 || cabinetSelection > 3 || isNaN(cabinetSelection)) {
     console.log("ERROR");
 } else {
-    console.log(`${cargoHold[cabinetSelection][0]}, ${cargoHold[cabinetSelection][1]}, ${cargoHold[cabinetSelection][2]}, ${cargoHold[cabinetSelection][3]}`)
+    console.log(`${cargoHold[cabinetSelection][0]}, ${cargoHold[cabinetSelection][1]}, ${cargoHold[cabinetSelection][2]}, ${cargoHold[cabinetSelection][3]}`);
 }
 //5) Modify the code to query the user for BOTH a cabinet in cargoHold AND a particular item. Use the 'includes' method to check if the cabinet contains the selected item, then print “Cabinet ____ DOES/DOES NOT contain ____.”
-let cabinet = 
+cabinetSelection = input.question("Select a cabinet (0 - 3): ");
+let item = input.question("Choose an item: ");
+if (cargoHold[cabinetSelection].includes(item) === true) {
+    console.log(`Cabinet ${cabinetSelection} DOES contains ${item}`);
+} else {
+    console.log(`Cabinet ${cabinetSelection} DOES NOT contains ${item}`);
+}

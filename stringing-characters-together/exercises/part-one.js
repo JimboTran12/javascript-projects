@@ -13,3 +13,4 @@ if (num.indexOf('.') !== -1 ) { //Deximals
 } else { // interger
     console.log(`Number : ${num}\nLength: ${num.length}`);
 }
+
