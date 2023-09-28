@@ -8,8 +8,21 @@
 // 4. Below the function, define and initialize a variable to hold a string.
 // 5. Use console.log(reverseCharacters(myVariableName)); to call the function and verify that it correctly reverses the characters in the string.
 // 6. Optional: Use method chaining to reduce the lines of code within the function.
-
+function reverseCharacters(str) {
+    if (typeof str !== "number") {
+        let arr = [];
+        arr = str.split("");
+        str = arr.reverse().join("");
+    }
+    else {
+        str = Number(reverseCharacters(String(str)));
+    }
+    return str;
+}
+let myVariableName = 123456;
+console.log(typeof reverseCharacters(myVariableName));
 // Part Two: Reverse Digits
+
 
 // 1. Add an if statement to reverseCharacters to check the typeof the parameter.
 // 2. If typeof is ‘string’, return the reversed string as before.
@@ -29,14 +42,33 @@
 let arrayTest1 = ['apple', 'potato', 'Capitalized Words'];
 let arrayTest2 = [123, 8897, 42, 1168, 8675309];
 let arrayTest3 = ['hello', 'world', 123, 'orange'];
+function reverseTraversal(arr) {
+    let arrNew = [];
+    for (let i = 0; i < arr.length; i++ ) {
+        arrNew.push(reverseCharacters(arr[i]));
+    }
+    return arrNew;
+}
 
+console.log(reverseTraversal(arrayTest3));
 // Bonus Missions
 
 // 1. Have a clear, descriptive name like funPhrase.
 // 2. Retrieve only the last character from strings with lengths of 3 or less.
 // 3. Retrieve only the first 3 characters from strings with lengths larger than 3.
 // 4. Use a template literal to return the phrase We put the '___' in '___'. Fill the first blank with the modified string, and fill the second blank with the original string.
+let funPhrase = function(phrase) {
+    let fun = "";
+    if (phrase.length <= 3) {
+        fun = phrase[phrase.length-1];
+    }
+    else {
+        fun = phrase.slice(0,3);
+    }
+    return `We put the ${fun} in the ${phrase}`;
+};
 
+console.log(funPhrase("Farm"));
 // Test Function
 
 // 1. Outside of the function, define the variable str and initialize it with a string (e.g. 'Functions rock!').
