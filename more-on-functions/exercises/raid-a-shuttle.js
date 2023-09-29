@@ -34,7 +34,20 @@ console.log("Hold status: " + holdStatus(cargoHold));
 //c). Once you figure out how much fuel to pump out, return that value.
 
 //d). Decide where to best place your function call to gather our new fuel.
+*/
+let notSiphon = function(fuelAmount) {
+  let fuelTaken = 0;
+  if (checkFuel(fuelAmount) === 'green') {
+    fuelTaken = fuelAmount - 100000 - 1;
+  } else if ( checkFuel(fuelAmount) === 'yellow'){
+    fuelTaken = fuelAmount - 50000  - 1;
+  } else if (checkFuel(fuelAmount) === 'red') {
+    fuelTaken = fuelAmount;
+  }
+  return fuelTaken;
+};
 
+console.log(checkFuel(fuelLevel), checkFuel(fuelLevel - notSiphon(fuelLevel)));
 /* Next, liberate some of that glorious cargo.
  * /
 
@@ -54,4 +67,16 @@ console.log("Hold status: " + holdStatus(cargoHold));
 //b). Call your anonymous fuel and cargo functions from within irs.
 
 //c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
+va*/
+let notSteal = function(arr) {
+  let arrNew = [];
+  arrNew.push(arr.splice(1, 1, "cheap alcohol"));
+  arrNew.push(arr.splice(6,1, "cheap boots"));
+  return arrNew;
+}
 
+let irs = function (fuel, cargo) {
+  arr = notSteal(cargo);
+  return (`Raided ${notSiphon(fuel)} kg of fuel from the tanks, and stole ${arr[0]} and ${arr[1]} from the cargo hold`);
+}
+console.log(irs(fuelLevel, cargoHold));
