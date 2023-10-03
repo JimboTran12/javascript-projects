@@ -46,6 +46,7 @@ function generatePassword(string1, string2) {
     code = code + string1[i] + string2[i];
   }
 
+
   return code;
 }
 
