@@ -3,29 +3,34 @@ const launchcode = require('../index.js');
 
 describe("Testing launchcode", function(){
 
-  // Write your unit tests here!\
-  test("value of 'organization' is 'nonprofit'", function() {
-    let output = launchcode.organization;
-    expect(output).toBe("nonprofit");
+  // Write your unit tests here!
+  test("organization key has value of 'nonprofit'", () => {
+    expect(launchcode.organization).toBe("nonprofit");
   });
 
-  test("value of 'executiveDirector' is 'Jeff'", function() {
-    let output = launchcode.executiveDirector;
-    expect(output).toBe("Jeff");
+  test("executiveDirector key has value of 'Jeff'", () => {
+    expect(launchcode.executiveDirector).toBe("Jeff");
   });
 
-  test("value of 'percentageCoolEmployees' is 100", function() {
-    let output = launchcode.percentageCoolEmployees;
-    expect(output).toBe(100);
+  test("percentageCoolEmpoyees key has value of 100", () => {
+    expect(launchcode.percentageCoolEmployees).toBe(100);
   });
 
-  test("value of 'programsOffered' is ['Web Development', 'Data Analysis', 'Liftoff']", function() {
-    let output = launchcode.programsOffered;
-    let arr = ['Web Development', 'Data Analysis', 'Liftoff'];
-    expect(output).toEqual(arr);
+  test("programsOffered key has value of ['Web Development', 'Data Analysis', 'Liftoff'", () => {
+    expect(launchcode.programsOffered).toEqual(["Web Development", "Data Analysis", "Liftoff"]);
+    expect(launchcode.programsOffered.length).toBe(3);
   });
-  test("When passed a number that is ONLY divisible by 2, launchOutput() returns 'Launch!'", function() {
-    let output = launchcode.launchOuput(4);
-    expect(output).toBe("'Launch!'");
-  })
+
+  test("launchOutput() method returns different string value based on divisibility", () => {
+    expect(launchcode.launchOutput(2)).toBe("Launch!");
+    expect(launchcode.launchOutput(3)).toBe("Code!");
+    expect(launchcode.launchOutput(5)).toBe("Rocks!")
+    expect(launchcode.launchOutput(6)).toBe("LaunchCode!");
+    expect(launchcode.launchOutput(15)).toBe("Code Rocks!");
+    expect(launchcode.launchOutput(10)).toBe("Launch Rocks! (CRASH!!!!)");
+    expect(launchcode.launchOutput(30)).toBe("LaunchCode Rocks!");
+    expect(launchcode.launchOutput(1)).toBe("Rutabagas! That doesn't work.");
+
+  });
+
 });
